@@ -1,0 +1,57 @@
+.phpgridder-table { 
+    max-width: 1200px;
+    padding: 10px 0px;
+}
+
+.phpgridder-row {
+    display: flex;
+    flex-direction: row;
+    border-left: 7px solid rgba(0,0,0,0);
+    border-right: 7px solid rgba(0,0,0,0);
+    border-bottom: 1px solid white;
+}
+
+.phpgridder-titlerow{
+	display: flex;
+    flex-direction: row;
+    border-left: 7px solid rgba(0,0,0,0);
+    border-right: 7px solid rgba(0,0,0,0);
+    border-bottom: 3px solid white;
+}
+
+.phpgridder-odd-row {
+    background-color: #242424;
+}
+
+.phpgridder-even-row {
+    background-color: #444444;
+}
+
+.phpgridder-cell { 
+    flex-basis: 100%;
+    padding: 8px 4px;
+}
+
+.phpgridder-titlecell { 
+    flex-basis: 100%;
+    font-size: 13pt;
+    padding: 8px 4px;
+}
+
+@media screen and (max-width: 500px){
+	.phpgridder-row {
+        flex-wrap: wrap;
+	}
+
+	.phpgridder-cell {
+		padding: 2px;
+	}
+
+	.phpgridder-titlecell {
+		padding: 2px;
+    }
+    
+    .phpgridder-titlerow {
+        border-bottom: 3px solid white;
+    }
+}
