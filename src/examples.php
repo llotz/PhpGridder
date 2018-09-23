@@ -24,10 +24,10 @@ require_once("PhpGridder.php");
 <h3>rowDivClassConditions</h3>
 <p>this adds a DivClass named "highlight-row" to all rows where ColumnTitle2 equals Row2Cell2 (green here)</p>
 <?
-	$rowDivClassConditions = array(
-			array("ColumnTitle2", "Col2Cell2", "highlight-row")	
-		);
 	$phpGridderRowCon = new PhpGridder($databaseStuff);
+	$rowDivClassConditions = array(
+			array("ColumnTitle2", "Row2Cell2", "highlight-row")	
+		);
 	$phpGridderRowCon->rowDivClassConditions = $rowDivClassConditions;
 
 	$plainHtmlGrid = $phpGridderRowCon->renderHtml();
@@ -38,7 +38,7 @@ require_once("PhpGridder.php");
 <p>this adds a DivClass named "highlight-cell" to all cells of the row x named ColumnTitle1 where ColumnTitle2 equals Row1Cell2</p>
 <?
 	$rowDivClassConditions = array(
-		array("ColumnTitle1", "ColumnTitle2", "Col1Cell2", "highlight-cell")
+		array("ColumnTitle1", "ColumnTitle2", "Row1Cell2", "highlight-cell")
 	);
 	$phpGridderCellCon = new PhpGridder($databaseStuff);
 	$phpGridderCellCon->cellDivClassConditions = $rowDivClassConditions;
