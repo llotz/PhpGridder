@@ -1,9 +1,9 @@
 <?php
-require_once("PhpGridder.php");
+require_once("../PhpGridder.php");
 ?>
 <head>
 	<style>
-		<?=file_get_contents("style.css");?>
+		<?=file_get_contents("../style.css");?>
 		<?=file_get_contents("examples.css");?>
 	</style>
 </head>
