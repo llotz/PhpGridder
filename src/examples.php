@@ -82,7 +82,7 @@ require_once("PhpGridder.php");
 ?>
 
 <h3>showHeadRow</h3>
-<p>If you don't want the title row to be shown, just switch it off</p>
+<p>If you don't want the title row to be shown, just turn it off</p>
 <?
 	$phpGridderTitle = new PhpGridder($databaseStuff);
 	$phpGridderTitle->showHeadRow = false;

@@ -1,0 +1,109 @@
+<html><link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-custom-style"></style><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style>
+		body{
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Debug, just for eyestrain purposes */
+    background-color: #2b2b2b;
+    color: white;
+    font-weight: lighter;
+}
+
+a{
+    color:hotpink;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.phpgridder-table { 
+    max-width: 1200px;
+    padding: 10px 0px;
+}
+
+.phpgridder-row {
+    display: flex;
+    flex-direction: row;
+    border-left: 7px solid rgba(0,0,0,0);
+    border-right: 7px solid rgba(0,0,0,0);
+    border-bottom: 1px solid white;
+}
+
+.phpgridder-titlerow{
+	display: flex;
+    flex-direction: row;
+    border-left: 7px solid rgba(0,0,0,0);
+    border-right: 7px solid rgba(0,0,0,0);
+    border-bottom: 3px solid white;
+}
+
+.phpgridder-odd-row {
+    background-color: #242424;
+}
+
+.phpgridder-even-row {
+    background-color: #444444;
+}
+
+.phpgridder-cell { 
+    flex-basis: 100%;
+    padding: 8px 4px;
+}
+
+.phpgridder-titlecell { 
+    flex-basis: 100%;
+    font-size: 13pt;
+    padding: 8px 4px;
+}
+
+@media screen and (max-width: 500px){
+	.phpgridder-row {
+        flex-wrap: wrap;
+	}
+
+	.phpgridder-cell {
+		padding: 2px;
+	}
+
+	.phpgridder-titlecell {
+		padding: 2px;
+    }
+    
+    .phpgridder-titlerow {
+        border-bottom: 3px solid white;
+    }
+}		.highlight-row{
+	background-color:green;
+}
+
+.highlight-cell{
+	background-color:hotpink;
+}	</style>
+</head>
+<body>
+<h3>Plain Grid</h3>
+<p>No configuration done here</p>
+<div class="phpgridder-table"><div class="phpgridder-titlerow"><div class="phpgridder-titlecell"><b>ColumnTitle1</b></div><div class="phpgridder-titlecell"><b>ColumnTitle2</b></div><div class="phpgridder-titlecell"><b>ColumnTitle3</b></div></div><div class="phpgridder-row phpgridder-even-row"><div class="phpgridder-cell"><p>Row1Cell1</p></div><div class="phpgridder-cell"><p>Row1Cell2</p></div><div class="phpgridder-cell"><p>Row1Cell3</p></div></div><div class="phpgridder-row phpgridder-odd-row"><div class="phpgridder-cell"><p>Row2Cell1</p></div><div class="phpgridder-cell"><p>Row2Cell2</p></div><div class="phpgridder-cell"><p>Row2Cell3</p></div></div></div>
+<h3>rowDivClassConditions</h3>
+<p>this adds a DivClass named "highlight-row" to all rows where ColumnTitle2 equals Row2Cell2 (green here)</p>
+<div class="phpgridder-table"><div class="phpgridder-titlerow"><div class="phpgridder-titlecell"><b>ColumnTitle1</b></div><div class="phpgridder-titlecell"><b>ColumnTitle2</b></div><div class="phpgridder-titlecell"><b>ColumnTitle3</b></div></div><div class="phpgridder-row phpgridder-even-row"><div class="phpgridder-cell"><p>Row1Cell1</p></div><div class="phpgridder-cell"><p>Row1Cell2</p></div><div class="phpgridder-cell"><p>Row1Cell3</p></div></div><div class="phpgridder-row highlight-row phpgridder-odd-row"><div class="phpgridder-cell"><p>Row2Cell1</p></div><div class="phpgridder-cell"><p>Row2Cell2</p></div><div class="phpgridder-cell"><p>Row2Cell3</p></div></div></div>
+<h3>cellDivClassConditions</h3>
+<p>this adds a DivClass named "highlight-cell" to all cells of the row x named ColumnTitle1 where ColumnTitle2 equals Row1Cell2</p>
+<div class="phpgridder-table"><div class="phpgridder-titlerow"><div class="phpgridder-titlecell"><b>ColumnTitle1</b></div><div class="phpgridder-titlecell"><b>ColumnTitle2</b></div><div class="phpgridder-titlecell"><b>ColumnTitle3</b></div></div><div class="phpgridder-row phpgridder-even-row"><div class="phpgridder-cell highlight-cell"><p>Row1Cell1</p></div><div class="phpgridder-cell"><p>Row1Cell2</p></div><div class="phpgridder-cell"><p>Row1Cell3</p></div></div><div class="phpgridder-row phpgridder-odd-row"><div class="phpgridder-cell"><p>Row2Cell1</p></div><div class="phpgridder-cell"><p>Row2Cell2</p></div><div class="phpgridder-cell"><p>Row2Cell3</p></div></div></div>
+<h3>columnsToHide</h3>
+<p>Columns that should not be shown. "ColumnTitle2" and "ColumnTitle3" in this case.</p>
+<div class="phpgridder-table"><div class="phpgridder-titlerow"><div class="phpgridder-titlecell"><b>ColumnTitle1</b></div></div><div class="phpgridder-row phpgridder-even-row"><div class="phpgridder-cell"><p>Row1Cell1</p></div></div><div class="phpgridder-row phpgridder-odd-row"><div class="phpgridder-cell"><p>Row2Cell1</p></div></div></div>
+<h3>rowLinks</h3>
+<p>Links that get added to Rows. In this example the whole Row gets Linked to example/%Value of ColumnTitle2%</p>
+<div class="phpgridder-table"><div class="phpgridder-titlerow"><div class="phpgridder-titlecell"><b>ColumnTitle1</b></div><div class="phpgridder-titlecell"><b>ColumnTitle2</b></div><div class="phpgridder-titlecell"><b>ColumnTitle3</b></div></div><a href="http://localhost/example/Row1Cell2"><div class="phpgridder-row phpgridder-even-row"><div class="phpgridder-cell"><p>Row1Cell1</p></div><div class="phpgridder-cell"><p>Row1Cell2</p></div><div class="phpgridder-cell"><p>Row1Cell3</p></div></div></a><a href="http://localhost/example/Row2Cell2"><div class="phpgridder-row phpgridder-odd-row"><div class="phpgridder-cell"><p>Row2Cell1</p></div><div class="phpgridder-cell"><p>Row2Cell2</p></div><div class="phpgridder-cell"><p>Row2Cell3</p></div></div></a></div>
+<h3>cellLinks</h3>
+<p>You can as well link row values to single cells</p>
+<div class="phpgridder-table"><div class="phpgridder-titlerow"><div class="phpgridder-titlecell"><b>ColumnTitle1</b></div><div class="phpgridder-titlecell"><b>ColumnTitle2</b></div><div class="phpgridder-titlecell"><b>ColumnTitle3</b></div></div><div class="phpgridder-row phpgridder-even-row"><div class="phpgridder-cell"><a href="http://localhost/example/Row1Cell2"><p>Row1Cell1</p></a></div><div class="phpgridder-cell"><p>Row1Cell2</p></div><div class="phpgridder-cell"><p>Row1Cell3</p></div></div><div class="phpgridder-row phpgridder-odd-row"><div class="phpgridder-cell"><a href="http://localhost/example/Row2Cell2"><p>Row2Cell1</p></a></div><div class="phpgridder-cell"><p>Row2Cell2</p></div><div class="phpgridder-cell"><p>Row2Cell3</p></div></div></div>
+<h3>columnWidths</h3>
+<p>You can declare maxwidths for your columns</p>
+<div class="phpgridder-table"><div class="phpgridder-titlerow"><div class="phpgridder-titlecell" style="max-width:150"><b>ColumnTitle1</b></div><div class="phpgridder-titlecell"><b>ColumnTitle2</b></div><div class="phpgridder-titlecell" style="max-width:300"><b>ColumnTitle3</b></div></div><div class="phpgridder-row phpgridder-even-row"><div class="phpgridder-cell" style="max-width:150"><p>Row1Cell1</p></div><div class="phpgridder-cell"><p>Row1Cell2</p></div><div class="phpgridder-cell" style="max-width:300"><p>Row1Cell3</p></div></div><div class="phpgridder-row phpgridder-odd-row"><div class="phpgridder-cell" style="max-width:150"><p>Row2Cell1</p></div><div class="phpgridder-cell"><p>Row2Cell2</p></div><div class="phpgridder-cell" style="max-width:300"><p>Row2Cell3</p></div></div></div>
+<h3>showHeadRow</h3>
+<p>If you don't want the title row to be shown, just turn it off</p>
+<div class="phpgridder-table"><div class="phpgridder-row phpgridder-even-row"><div class="phpgridder-cell"><p>Row1Cell1</p></div><div class="phpgridder-cell"><p>Row1Cell2</p></div><div class="phpgridder-cell"><p>Row1Cell3</p></div></div><div class="phpgridder-row phpgridder-odd-row"><div class="phpgridder-cell"><p>Row2Cell1</p></div><div class="phpgridder-cell"><p>Row2Cell2</p></div><div class="phpgridder-cell"><p>Row2Cell3</p></div></div></div>
+</body></html>
