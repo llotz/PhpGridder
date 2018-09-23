@@ -6,7 +6,9 @@ class PhpGridder{
 
     public $columnsToHide;
 
-    public $columnLinks;
+    public $rowLinks;
+
+    public $cellLinks;
 
     public $rowDivClassConditions;
 	
@@ -93,25 +95,23 @@ class PhpGridder{
     }
 
     function getRowLinkHtmlTag($row){
-        if(is_array($this->columnLinks) && count($this->columnLinks) > 0 && !is_array($this->columnLinks[0]))
+        if(is_array($this->rowLinks) && count($this->rowLinks) > 0 && !is_array($this->rowLinks[0]))
         {
-            if(strlen($this->columnLinks[0]) == 0 || strlen($this->columnLinks[1]) == 0)
+            if(strlen($this->rowLinks[0]) == 0 || strlen($this->rowLinks[1]) == 0)
                 return "";
-            $rowLink = sprintf($this->columnLinks[0], $row[$this->columnLinks[1]]);
+            $rowLink = sprintf($this->rowLinks[0], $row[$this->rowLinks[1]]);
             return "<a href=".$rowLink.">";
         }
-        else return "";
+        return "";
     }
 
     function getCellLinkHtmlTag($row, $columnName){
-        if(is_array($this->columnLinks) && is_array($this->columnLinks[0])){
-            foreach ($this->columnLinks as $columnLink){
-                if(is_array($columnLink) && $columnLink[0] == $columnName && count($columnLink) == 3)
-                {
-                    $rowLink = sprintf($columnLink[1], $row[$columnLink[2]]);
-                    return "<a href=".$rowLink.">";
-                }
-            }
+        if(is_array($this->cellLinks) && array_key_exists($columnName, $this->cellLinks)){
+            $columnLink = $this->cellLinks[$columnName];
+            if(strlen($columnLink[0]) == 0 || strlen($columnLink[1]) == 0)
+                return "";
+            $rowLink = sprintf($columnLink[0], $row[$columnLink[1]]);
+            return "<a href=".$rowLink.">";
         }
         return "";
     }

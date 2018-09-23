@@ -12,8 +12,8 @@ require_once("PhpGridder.php");
 <p>No configuration done here</p>
 <?
 	$databaseStuff = array(
-	array("ColumnTitle1" => "Col1Cell1", "ColumnTitle2" => "Col1Cell2", "ColumnTitle3" => "Col1Cell3"),
-	array("ColumnTitle1" => "Col2Cell1", "ColumnTitle2" => "Col2Cell2", "ColumnTitle3" => "Col2Cell3")
+	array("ColumnTitle1" => "Row1Cell1", "ColumnTitle2" => "Row1Cell2", "ColumnTitle3" => "Row1Cell3"),
+	array("ColumnTitle1" => "Row2Cell1", "ColumnTitle2" => "Row2Cell2", "ColumnTitle3" => "Row2Cell3")
 	);
 
 	$phpGridder = new PhpGridder($databaseStuff);
@@ -22,7 +22,7 @@ require_once("PhpGridder.php");
 ?>
 
 <h3>rowDivClassConditions</h3>
-<p>this adds a DivClass named "highlight-row" to all rows where ColumnTitle2 equals Coll2Cell2 (green here)</p>
+<p>this adds a DivClass named "highlight-row" to all rows where ColumnTitle2 equals Row2Cell2 (green here)</p>
 <?
 	$rowDivClassConditions = array(
 			array("ColumnTitle2", "Col2Cell2", "highlight-row")	
@@ -35,7 +35,7 @@ require_once("PhpGridder.php");
 ?>
 
 <h3>cellDivClassConditions</h3>
-<p>this adds a DivClass named "highlight-cell" to all cells of the row x named ColumnTitle1 where ColumnTitle2 equals Coll1Cell2</p>
+<p>this adds a DivClass named "highlight-cell" to all cells of the row x named ColumnTitle1 where ColumnTitle2 equals Row1Cell2</p>
 <?
 	$rowDivClassConditions = array(
 		array("ColumnTitle1", "ColumnTitle2", "Col1Cell2", "highlight-cell")
@@ -55,21 +55,21 @@ require_once("PhpGridder.php");
 	echo $phpGridderHiddenColumns->renderHtml();
 ?>
 
-<h3>columnLinks</h3>
+<h3>rowLinks</h3>
 <p>Links that get added to Rows. In this example the whole Row gets Linked to example/%Value of ColumnTitle2%</p>
 <?
 	$phpGridderLinksRow = new PhpGridder($databaseStuff);
-	$phpGridderLinksRow->columnLinks = array("example/%s", "ColumnTitle2");
+	$phpGridderLinksRow->rowLinks = array("example/%s", "ColumnTitle2");
 	echo $phpGridderLinksRow->renderHtml();
 
 ?>
 
-<p>You can as well link single Cells</p>
+<h3>cellLinks</h3>
+<p>You can as well link row values to single cells</p>
 <?
 	$phpGridderLinksCell = new PhpGridder($databaseStuff);
-	$phpGridderLinksCell->columnLinks = array(array("ColumnTitle1", "example/%s", "ColumnTitle2"));
+	$phpGridderLinksCell->cellLinks = array("ColumnTitle1" => array("example/%s", "ColumnTitle2"));
 	echo $phpGridderLinksCell->renderHtml();
-
 ?>
 
 <h3>columnWidths</h3>
