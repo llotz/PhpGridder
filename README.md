@@ -47,10 +47,10 @@ $phpGridder->rowDivClassConditions = $rowDivClassConditions;
 This adds a div class to a given cell where ColumnTitle2 equals Row2Cell2. 
 
 ```php
-$rowDivClassConditions = array(
+$cellDivClassConditions = array(
 		array("ColumnTitle1", "ColumnTitle2", "Row1Cell2", "highlight-cell")
 );
-$phpGridder->cellDivClassConditions = $rowDivClassConditions;
+$phpGridder->cellDivClassConditions = $cellDivClassConditions;
 ```
 
 ### columnsToHide
