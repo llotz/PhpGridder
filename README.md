@@ -1,9 +1,17 @@
 # PhpGridder
-A simple but powerful php class to render plain html of a data array.
+A simple but powerful, highly customizable php class to render plain html of a data array in just a few lines of code.
 
 For an example output take a look right here https://htmlpreview.github.io/?https://github.com/llotz/PhpGridder/blob/master/preview.html
 
-I will put some Documentation and Examples here later on.
+## Preferences
+
+PHP >= 5.3  -- I'm sure it works with older versions but i haven't testet it. 
+
+Thats it. No dependencies to download or composer libraries to install.
+
+## Installation
+
+You can clone this repository or just copy the contents of src/PhpGridder.php to your project and include it as shown in the src/example/index.php. To get the basic style as shown in the preview.html just copy the contents of the src/style.css to your projects .css or create a seperate css file for the gridder and include it.
 
 ## Initialization
 
