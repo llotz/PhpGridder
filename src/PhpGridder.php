@@ -29,10 +29,6 @@ class PhpGridder{
     public $classOddRow = "phpgridder-odd-row";
 
     public $classEvenRow = "phpgridder-even-row";
-	
-    private $isRowLink;
-
-    private $isCellLink;
 
     public function __construct($dbArray){
         if(is_array($dbArray))
@@ -40,7 +36,7 @@ class PhpGridder{
         else throw new Exception("Given variable is not an array!");
     }
 
-    public function renderGrid(){
+    public function renderHtml(){
         $renderedHtml = "<div class='{$this->classNameMain}'>";
         
         $renderedHtml .= $this->renderGridHeadRow();
@@ -52,6 +48,7 @@ class PhpGridder{
     }
 
     function renderGridHeadRow(){
+		$renderedHtml = "";
         if(!$this->showHeadRow) return "";
         if($this->dbArray[0] != ""){
             $renderedHtml .= "<div class='{$this->classTitleRow}'>";
@@ -68,6 +65,7 @@ class PhpGridder{
     }
 
     function renderGridBody(){
+		$renderedHtml = "";
         foreach($this->dbArray as $key => $row){
             $rowLink = $this->getRowLinkHtmlTag($row);
             $renderedHtml .= $rowLink;
@@ -78,8 +76,14 @@ class PhpGridder{
                 if(!is_array($this->columnsToHide) || count($this->columnsToHide)==0 || !in_array($key, $this->columnsToHide)){
                     $divRowTags = $this->getCellDivClasses($row, $key);
                     $widthFormat = $this->getColumnWidthFormatString($key);
-                	$renderedHtml .= "<div class='{$this->classCell}".$divRowTags."'".$widthFormat."><p>" . $value . "</p></div>";
-				}
+                    $cellLink = $this->getCellLinkHtmlTag($row, $key);
+                    $renderedHtml .= "<div class='{$this->classCell}".$divRowTags."'".$widthFormat.">";
+                    $renderedHtml .= $cellLink;
+                    $renderedHtml .="<p>" . $value . "</p>";
+                    if($cellLink != "")
+                        $renderedHtml .= "</a>";
+                    $renderedHtml .= "</div>";
+                }
             }
             $renderedHtml .= "</div>";
             if($rowLink != "")
@@ -99,12 +103,12 @@ class PhpGridder{
         else return "";
     }
 
-    function getCellLink($row, $columnName){
+    function getCellLinkHtmlTag($row, $columnName){
         if(is_array($this->columnLinks) && is_array($this->columnLinks[0])){
             foreach ($this->columnLinks as $columnLink){
-                if(is_array($columnLink) && array_key_exists($columnName, $columnLink) && count($columnLink) == 2)
+                if(is_array($columnLink) && $columnLink[0] == $columnName && count($columnLink) == 3)
                 {
-                    $rowLink = sprintf($columnLink[0], $row[$columnLink[1]]);
+                    $rowLink = sprintf($columnLink[1], $row[$columnLink[2]]);
                     return "<a href=".$rowLink.">";
                 }
             }
@@ -124,7 +128,7 @@ class PhpGridder{
 	
 	function getCellDivClasses($row, $cellName){
         if($this->cellDivClassConditions == null || !is_array($this->cellDivClassConditions)) return "";
-        
+        $divTags = "";
         foreach($this->cellDivClassConditions as $condition){
             if($condition[0] == $cellName && $row[$condition[1]] == $condition[2])
                 $divTags .= " ".$condition[3];

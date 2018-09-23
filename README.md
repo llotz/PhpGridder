@@ -24,7 +24,7 @@ In case you're using a mysql database i recommend using https://github.com/Thing
 
 When you have configured everything, you can get your plain HTML like 
 ```php
-$plainHtmlGrid = $phpGridder->renderGrid();
+$plainHtmlGrid = $phpGridder->renderHtml();
 ```
 
 ## Configuration

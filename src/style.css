@@ -1,3 +1,19 @@
+body{
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Debug, just for eyestrain purposes */
+    background-color: #2b2b2b;
+    color: white;
+    font-weight: lighter;
+}
+
+a{
+    color:hotpink;
+    text-decoration: none;
+    font-weight: normal;
+}
+
 .phpgridder-table { 
     max-width: 1200px;
     padding: 10px 0px;
