@@ -5,7 +5,7 @@ For an example output take a look right here https://htmlpreview.github.io/?http
 
 ## Preferences
 
-PHP >= 5.3  -- I'm sure it works with older versions but i haven't testet it. 
+PHP >= 5.3  -- I'm sure it works with older versions but i haven't tested it. 
 
 Thats it. No dependencies to download or composer libraries to install.
 
