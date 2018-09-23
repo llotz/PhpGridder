@@ -1,5 +1,7 @@
 # PhpGridder
-A simple but powerful php class to render plain html of a data array
+A simple but powerful php class to render plain html of a data array.
+
+For an example output take a look right here https://htmlpreview.github.io/?https://github.com/llotz/PhpGridder/blob/master/preview.html
 
 I will put some Documentation and Examples here later on.
 
