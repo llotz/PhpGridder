@@ -1,7 +1,7 @@
 # PhpGridder
 A simple but powerful, highly customizable php class to render plain html of a data array in just a few lines of code.
 
-For an example output take a look right here https://htmlpreview.github.io/?https://github.com/llotz/PhpGridder/blob/master/preview.html
+Here's an [example output](https://htmlpreview.github.io/?https://github.com/llotz/PhpGridder/blob/master/preview.html)
 
 ## Preferences
 
@@ -28,7 +28,7 @@ $databaseStuff = array(
 );
 ```
 
-In case you're using a mysql database i recommend using https://github.com/ThingEngineer/PHP-MySQLi-Database-Class which already deploys you the required format.
+In case you're using a mysql database i recommend using [PHP-Mysqli](https://github.com/ThingEngineer/PHP-MySQLi-Database-Class) which already deploys you the required format.
 
 ## Rendering
 
