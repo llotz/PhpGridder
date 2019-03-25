@@ -59,7 +59,6 @@ class PhpGridder{
                     $widthFormat = $this->getColumnWidthFormatString($key);
                     $renderedHtml .= "<div class='{$this->classTitleCell}'".$widthFormat."><b>" . $key . "</b></div>";
                 }                
-                
             }
             $renderedHtml .= "</div>";
         }
