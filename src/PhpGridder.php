@@ -2,7 +2,7 @@
 
 class PhpGridder{
 
-	public $dbArray;
+    public $dbArray;
 
     public $columnsToHide;
 
@@ -13,6 +13,8 @@ class PhpGridder{
     public $rowDivClassConditions;
 	
     public $cellDivClassConditions;
+	
+    public $cellDivClasses;
     
     public $columnWidths;
 
@@ -126,14 +128,24 @@ class PhpGridder{
     }
 	
 	function getCellDivClasses($row, $cellName){
-        if($this->cellDivClassConditions == null || !is_array($this->cellDivClassConditions)) return "";
-        $divTags = "";
-        foreach($this->cellDivClassConditions as $condition){
-            if($condition[0] == $cellName && $row[$condition[1]] == $condition[2])
-                $divTags .= " ".$condition[3];
-        }
-        return $divTags;
-    }
+		$divTags = $this->getCellDivs($cellName);
+		if($this->cellDivClassConditions == null || !is_array($this->cellDivClassConditions)) return $divTags;
+		foreach($this->cellDivClassConditions as $condition){
+		    if($condition[0] == $cellName && $row[$condition[1]] == $condition[2])
+			$divTags .= " ".$condition[3];
+		}
+        	return $divTags;
+    	}
+	
+	function getCellDivs($cellName){
+		$divTags = "";
+		if($this->cellDivClasses == null || !is_array($this->cellDivClasses)) return $divTags;
+		foreach($this->cellDivClasses as $class){
+			if($class[0] == $cellName)
+				$divTags .= " ".$class[1];
+		}
+		return $divTags;
+	}
 
     function getColumnWidthFormatString($cellName){
         if(is_array($this->columnWidths) && array_key_exists($cellName, $this->columnWidths)){
