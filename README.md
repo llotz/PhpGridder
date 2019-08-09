@@ -39,6 +39,19 @@ $plainHtmlGrid = $phpGridder->renderHtml();
 
 ## Configuration
 
+Every configuration that is done by an array takes multiple configuration options of the defined type.
+
+### cellDivClasses
+
+This option adds a div class to a Cell with a given Name. In this case every cell with the column name ColumnTitle2 gets the div class highlight-cell.
+
+```php
+$cellDivClassConditions = array(
+     array("ColumnTitle2", "highlight-cell")
+);
+$phpGridder->cellDivClassConditions = $cellDivClassConditions;
+```
+
 ### rowDivClassConditions
 
 This adds a div class to all rows where ColumnTitle2 equals Row2Cell2. You can style this div tag in your css.
