@@ -1,5 +1,5 @@
 # PhpGridder
-A simple but powerful, highly customizable php class to render plain html of a data array in just a few lines of code.
+A simple but powerful, highly customizable php class to render plain html grids of a data array in just a few lines of code.
 
 Here's an [example output](https://htmlpreview.github.io/?https://github.com/llotz/PhpGridder/blob/master/preview.html)
 
