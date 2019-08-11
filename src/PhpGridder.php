@@ -54,7 +54,7 @@ class PhpGridder{
     function renderGridHeadRow(){
 		$renderedHtml = "";
         if(!$this->showHeadRow) return "";
-        if($this->dbArray[0] != ""){
+        if(isset($this->dbArray[0])){
             $renderedHtml .= "<div class='{$this->classTitleRow}'>";
             foreach($this->dbArray[0] as $key => $value){
                 if(!is_array($this->columnsToHide) || count($this->columnsToHide)==0 || !in_array($key, $this->columnsToHide)){
